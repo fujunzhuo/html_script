@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--mask-->
+<div class="_mask"></div>
+<div class="_alert">
+    <input type="button" id="_cancel" value="close_alert">
+</div>
+<style>
+    ._mask{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        background: rgba(0,0,0,0.6);
+        bottom: 0;
+        display: none;
+    }
+    ._alert{
+        position: absolute;
+        z-index: 100;
+        width: 655px;
+        background: rgba(255,255,255,1);
+        border-radius: 8px;
+        box-shadow: -1px 1px 15px rgba(0,0,0,0.5) inset;
+        top:40%;
+        margin-top: -15%;
+        left: 32%;
+        padding: 30px 40px;
+        display: none;
+    }
+</style>
+<script>
+    $(function(){
+        $('#parkHatchBtn').click(function(){
+            $('body').css('overflow','hidden');
+            $('._mask').fadeIn('fast');
+            $('._alert').slideDown('fast');
+        });
+        $('#_cancel').click(function(){
+            $('body').css('overflow','auto');
+            $('._mask').fadeOut('fast');
+            $('._alert').slideUp('fast');
+        });
+    })
+</script>
+</body>
+</html>

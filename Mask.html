@@ -34,6 +34,11 @@
         padding: 30px 40px;
         display: none;
     }
+      .boxshadow{
+        transition: border-color ease-in-out 0.2s,box-shadow ease-in-out 0.2s;
+        box-shadow: -0.1px 0.1px 15px 0.1px #A2C9F0;
+        border: 1px solid #53B5ED;
+      }
 </style>
 <script>
     $(function(){
@@ -46,6 +51,14 @@
             $('body').css('overflow','auto');
             $('._mask').fadeOut('fast');
             $('._alert').slideUp('fast');
+        });
+        $('input,textarea').not('input[type="button"],input[type="submit"]').click(function (event) {
+            $('input,textarea').removeClass('boxshadow');
+            $(this).addClass('boxshadow');
+            event.stopPropagation();
+        });
+        $(document).click(function () {
+            $('input,textarea').removeClass('boxshadow');
         });
     })
 </script>
